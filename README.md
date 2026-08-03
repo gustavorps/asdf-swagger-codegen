@@ -18,6 +18,34 @@
 - `bash`, `curl`, `git`, and [POSIX utilities](https://pubs.opengroup.org/onlinepubs/9699919799/idx/utilities.html).
 - A [Java Runtime](https://java.com/en/download) installed on your computer.
 
+## Java Runtime
+
+swagger-codegen is a Java CLI, so `java` must be on your `PATH`.
+
+The recommended way to manage a Java Runtime with asdf is the [`asdf-java`](https://github.com/halcyon/asdf-java) plugin:
+
+```shell
+# Add the asdf-java plugin
+asdf plugin add java https://github.com/halcyon/asdf-java.git
+
+# Show all installable Java distributions (Eclipse Temurin, AdoptOpenJDK, etc.)
+asdf list all java | grep temurin
+
+# Install a version (e.g. Eclipse Temurin JRE 21 LTS)
+asdf install java temurin-jre-21.0.9+10.0.LTS
+
+# Set it for the current directory
+asdf set java temurin-jre-21.0.9+10.0.LTS
+
+# Or set it globally for your user
+asdf set -u java temurin-jre-21.0.9+10.0.LTS
+
+# Verify java is available
+java -version
+```
+
+Check the [asdf-java](https://github.com/halcyon/asdf-java) readme for more instructions.
+
 # Install
 
 Plugin:
@@ -30,7 +58,7 @@ swagger-codegen:
 
 ```shell
 # Show all installable versions
-asdf list-all swagger-codegen
+asdf list all swagger-codegen
 
 # Install specific version
 asdf install swagger-codegen latest
